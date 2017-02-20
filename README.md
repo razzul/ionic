@@ -1,0 +1,2 @@
+# ionic
+রাইকথা - ionic application 
