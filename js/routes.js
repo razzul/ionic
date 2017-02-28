@@ -1,63 +1,44 @@
-angular.module('app.routes', [])
-
-.config(function($stateProvider, $urlRouterProvider) {
-
-  // Ionic uses AngularUI Router which uses the concept of states
-  // Learn more here: https://github.com/angular-ui/ui-router
-  // Set up the various states which the app can be in.
-  // Each state's controller can be found in controllers.js
-  $stateProvider
-    
-  
-
-      .state('tabsController.page2', {
-    url: '/page2',
-    views: {
-      'tab1': {
-        templateUrl: 'templates/page2.html',
-        controller: 'page2Ctrl'
-      }
-    }
-  })
-
-  .state('tabsController.page3', {
-    url: '/page3',
-    views: {
-      'tab2': {
-        templateUrl: 'templates/page3.html',
-        controller: 'page3Ctrl'
-      }
-    }
-  })
-
-  .state('tabsController.details', {
-    url: '/page5',
-    views: {
-      'tab1': {
-        templateUrl: 'templates/details.html',
-        controller: 'detailsCtrl'
-      }
-    }
-  })
-
-  .state('tabsController.page4', {
-    url: '/page4',
-    views: {
-      'tab3': {
-        templateUrl: 'templates/page4.html',
-        controller: 'page4Ctrl'
-      }
-    }
-  })
-
-  .state('tabsController', {
-    url: '/page1',
-    templateUrl: 'templates/tabsController.html',
-    abstract:true
-  })
-
-$urlRouterProvider.otherwise('/page1/page2')
-
-  
-
+angular.module('app.routes', []).config(function($stateProvider, $urlRouterProvider) {
+    // Ionic uses AngularUI Router which uses the concept of states
+    // Learn more here: https://github.com/angular-ui/ui-router
+    // Set up the various states which the app can be in.
+    // Each state's controller can be found in controllers.js
+    $stateProvider.state('tabs.home', {
+        url: '/home',
+        views: {
+            'home-tab': {
+                templateUrl: 'templates/home.html',
+                controller: 'homeCtrl'
+            }
+        }
+    }).state('tabs.create', {
+        url: '/create',
+        views: {
+            'create-tab': {
+                templateUrl: 'templates/create.html',
+                controller: 'createCtrl'
+            }
+        }
+    }).state('tabs.details', {
+        url: '/details/:poemId',
+        views: {
+            'home-tab': {
+                templateUrl: 'templates/details.html',
+                controller: 'detailsCtrl'
+            }
+        }
+    }).state('tabs.profile', {
+        url: '/profile',
+        views: {
+            'profile-tab': {
+                templateUrl: 'templates/profile.html',
+                controller: 'profileCtrl'
+            }
+        }
+    }).state('tabs', {
+        url: '/tab',
+        templateUrl: 'templates/tabs.html',
+        abstract: true
+    })
+    $urlRouterProvider.otherwise('/tab/home');
 });

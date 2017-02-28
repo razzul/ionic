@@ -1,0 +1,15 @@
+<ion-view title="নতুন কবিতা যোগ">
+  <ion-content padding="true" class="has-header">
+    <form class="list">
+      <label class="item item-input item-floating-label" name="name">
+        <span class="input-label">কবিতার নাম</span>
+        <input type="text" placeholder="কবিতার নাম" ng-model="poem.title" ng-keyup="translateTitle(poem.title)">
+      </label>
+      <label class="item item-input item-floating-label">
+        <span class="input-label">আমার কবিতা...</span>
+        <textarea placeholder="আমার কবিতা..." ng-model="poem.details" ng-keyup="translateDetails(poem.details)"></textarea>
+      </label>
+    </form>
+    <button class="button button-positive button-block button-clear" ng-click="add()">প্রকাশ করা!</button>
+  </ion-content>
+</ion-view>

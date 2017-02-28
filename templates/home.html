@@ -1,9 +1,9 @@
-<ion-view title="Details" id="page5">
+<ion-view view-title="আমার প্রিয় তালিকা" >
   <ion-content padding="true" class="has-header">
-    <ion-list type="item-text-wrap" >
+    <ion-list ng-repeat="item in list | orderBy:'-id'" type="item-text-wrap" >
       <ion-item class="" ng-href="#/tab/details/{{item.id}}">
         
-        <h2>{{details.title}} <i class="icon ion-android-star" ng-class="{'ion-ios-star-outline' : item.stared == false }"></i></h2>
+        <h2>{{item.title}} <i class="icon ion-android-star" ng-class="{'ion-ios-star-outline' : item.stared == false }"></i></h2>
 
         <ion-option-button class="button-positive" ng-click="star(item)">
           <i class="icon ion-android-star" ng-class="{'ion-ios-star-outline' : item.stared == false }"></i>
@@ -11,16 +11,9 @@
       </ion-item>
       <ion-item>
         <div class="show-list-numbers-and-dots">
-            <p style="margin-top:0px;color:#000000;">{{details.details}}</p>
-        </div>
-      </ion-item>
-      <ion-item>
-        <div class="show-list-numbers-and-dots">
-            <i class="icon ion-android-person"></i>রাই, ০১-০২-২০১৭</ion-item>
+            <p style="margin-top:0px;color:#000000;">{{item.details.substr(0,200);}}</p>
         </div>
       </ion-item>
     </ion-list>
-
-
   </ion-content>
 </ion-view>
